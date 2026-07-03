@@ -28,6 +28,7 @@
             <th>Temperature</th>
             <th>Humidity</th>
             <th>Light</th>
+            <th>Pass Value</th>
           </tr>
         </thead>
         @if (sensorReadingsPage.items.length > 0) {
@@ -37,6 +38,7 @@
                 <td>{{ item.temperature | number:'1.1-1' }} F</td>
                 <td>{{ item.humidity }} %</td>
                 <td>{{ item.light }}</td>
+                <td>{{ item.passValue }}</td>
               </tr>
             }
           </tbody>
