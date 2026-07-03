@@ -99,6 +99,13 @@ h1 {
   gap: 1rem;
 }
 
+.reading-grid-wide {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
 .measurement-card {
   min-width: 0;
   padding: 1.25rem;

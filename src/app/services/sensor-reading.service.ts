@@ -75,7 +75,8 @@ export class SensorReadingService {
       id: this.toDisplayId(reading.id, index),
       temperature: reading.temperature,
       humidity: reading.humidity,
-      light: (reading as any).light !== undefined ? (reading as any).light : undefined
+      light: reading.light,
+      passValue: reading.passValue
     };
   }
 

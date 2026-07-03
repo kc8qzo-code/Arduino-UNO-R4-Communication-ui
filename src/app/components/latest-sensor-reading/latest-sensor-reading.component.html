@@ -34,6 +34,12 @@
             <p class="measurement-value">{{ reading.light | number:'1.0-0' }}<span> Ohms</span></p>
           </article>
         </div>
+        <div class="reading-grid-wide">
+          <article class="measurement-card">
+            <p class="measurement-label">Pass Value</p>
+            <p class="measurement-value">{{ reading.passValue | number:'1.0-0' }}</p>
+          </article>
+        </div>
       </div>
     } @else {
       <div class="status-card">
