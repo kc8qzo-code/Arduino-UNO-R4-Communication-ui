@@ -4,14 +4,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { RouterLink } from '@angular/router';
 import { catchError, map, of, timer } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-
-import type { SensorReading } from '../../models/sensor-reading.model';
 import { SensorReadingService } from '../../services/sensor-reading.service';
-
-interface LatestSensorReadingViewModel {
-  reading: SensorReading | null;
-  polledAt: Date;
-}
 
 @Component({
   selector: 'app-latest-sensor-reading',
@@ -21,6 +14,9 @@ interface LatestSensorReadingViewModel {
   styleUrl: './latest-sensor-reading.component.scss'
 })
 export class LatestSensorReadingComponent {
+
+  constructor(private readonly sensorReadingService: SensorReadingService) {}
+
   protected errorMessage = '';
 
   protected readonly latestSensorReading$ = timer(0, 2000).pipe(
@@ -45,8 +41,6 @@ export class LatestSensorReadingComponent {
       )
     )
   );
-
-  constructor(private readonly sensorReadingService: SensorReadingService) {}
 
   private getErrorMessage(error: unknown): string {
     if (error instanceof HttpErrorResponse) {
