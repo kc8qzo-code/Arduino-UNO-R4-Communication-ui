@@ -7,13 +7,13 @@ import { switchMap } from 'rxjs/operators';
 import { SensorReadingService } from '../../services/sensor-reading.service';
 
 @Component({
-  selector: 'app-latest-sensor-reading',
+  selector: 'app-latest-sensor-reading-mobile',
   standalone: true,
   imports: [AsyncPipe, DatePipe, DecimalPipe, RouterLink],
-  templateUrl: './latest-sensor-reading.component.html',
-  styleUrl: './latest-sensor-reading.component.scss'
+  templateUrl: './latest-sensor-reading-mobile.component.html',
+  styleUrl: './latest-sensor-reading-mobile.component.scss'
 })
-export class LatestSensorReadingComponent {
+export class LatestSensorReadingMobileComponent {
 
   constructor(private readonly sensorReadingService: SensorReadingService) {}
 
