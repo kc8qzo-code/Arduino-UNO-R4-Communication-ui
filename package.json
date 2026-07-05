@@ -8,11 +8,12 @@
     "ssg": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve": "ng serve --host 0.0.0.0"
+    "serve": "ng serve --host 0.0.0.0 --port 4200"
   },
   "private": true,
   "packageManager": "npm@11.12.1",
   "dependencies": {
+    "@angular/cdk": "^21.2.14",
     "@angular/common": "^21.2.0",
     "@angular/compiler": "^21.2.0",
     "@angular/core": "^21.2.0",
