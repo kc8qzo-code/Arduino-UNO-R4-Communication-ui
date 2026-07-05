@@ -19,7 +19,8 @@ export class LatestSensorReadingComponent {
 
   protected errorMessage = '';
 
-  protected readonly latestSensorReading$ = timer(0, 2000).pipe(
+  // Poll the latest sensor reading every 2 seconds
+  protected readonly latestSensorReading = timer(0, 2000).pipe(
     switchMap(() =>
       this.sensorReadingService.getLatestSensorReading().pipe(
         map((reading) => {
