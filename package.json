@@ -8,7 +8,7 @@
     "ssg": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve": "ng serve"
+    "serve": "ng serve --host 0.0.0.0"
   },
   "private": true,
   "packageManager": "npm@11.12.1",
