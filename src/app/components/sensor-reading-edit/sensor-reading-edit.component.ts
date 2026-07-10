@@ -79,7 +79,7 @@ export class SensorReadingEditComponent implements OnInit {
     this.sensorReadingService.updateSensorReading(this.reading.id, changes).subscribe({
       next: () => {
         this.isSaving = false;
-        this.successMessage = 'Sensor reading updated successfully.';
+        void this.router.navigate(['/sensor-reading']);
       },
       error: (error: unknown) => {
         this.isSaving = false;
