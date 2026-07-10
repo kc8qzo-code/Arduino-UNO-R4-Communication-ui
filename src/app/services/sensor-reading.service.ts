@@ -72,7 +72,7 @@ export class SensorReadingService {
 
   private toSensorReading(reading: SensorReadingResponse, index: number): SensorReading {
     return {
-      id: this.toDisplayId(reading.id, index),
+      id: this.toSensorId(reading.id, index),
       temperature: reading.temperature,
       humidity: reading.humidity,
       light: reading.light,
@@ -80,11 +80,11 @@ export class SensorReadingService {
     };
   }
 
-  private toDisplayId(id: SensorReadingResponse['id'], index: number): string {
+  private toSensorId(id: SensorReadingResponse['id'], index: number): bigint {
     if (id === null || id === undefined) {
-      return String(index + 1);
+      return BigInt(index + 1);
     }
 
-    return String(id);
+    return BigInt(id);
   }
 }

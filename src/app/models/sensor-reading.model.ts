@@ -1,5 +1,5 @@
 export interface SensorReading {
-  id?: string | null;
+  id: bigint;
   temperature: number;
   humidity: number;
   light: number | null;
