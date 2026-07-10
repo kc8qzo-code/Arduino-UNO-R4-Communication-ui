@@ -6,6 +6,7 @@ import type { PaginatedSensorReadings } from '../models/paginated-sensor-reading
 import type { SensorReading } from '../models/sensor-reading.model';
 import type { SensorReadingPageResponse } from '../models/sensor-reading-page-response.model';
 import type { SensorReadingResponse } from '../models/sensor-reading-response.model';
+import type { SensorReadingUpdate } from '../models/sensor-reading-update.model';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +32,12 @@ export class SensorReadingService {
     return this.http.get<SensorReadingResponse>(`${this.apiUrl}/latest`).pipe(
       map((response) => this.toSensorReading(response, 0))
     );
+  }
+
+  getSensorReading(id: bigint): Observable<SensorReading> {
+    return this.http
+      .get<SensorReadingResponse>(`${this.apiUrl}/readings/${id.toString()}`)
+      .pipe(map((response) => this.toSensorReading(response, 0)));
   }
 
   private toPaginatedResult(
@@ -72,19 +79,24 @@ export class SensorReadingService {
 
   private toSensorReading(reading: SensorReadingResponse, index: number): SensorReading {
     return {
-      id: this.toDisplayId(reading.id, index),
+      id: this.toSensorId(reading.id, index),
       temperature: reading.temperature,
       humidity: reading.humidity,
       light: reading.light,
-      passValue: reading.passValue
+      passValue: reading.passValue,
+      postAt: reading.postAt ? new Date(reading.postAt) : undefined
     };
   }
 
-  private toDisplayId(id: SensorReadingResponse['id'], index: number): string {
+  private toSensorId(id: SensorReadingResponse['id'], index: number): bigint {
     if (id === null || id === undefined) {
-      return String(index + 1);
+      return BigInt(index + 1);
     }
 
-    return String(id);
+    return BigInt(id);
+  }
+
+  updateSensorReading(id: bigint, changes: SensorReadingUpdate): Observable<void> {
+    return this.http.put<void>(`${this.apiUrl}/readings/${id.toString()}`, changes);
   }
 }

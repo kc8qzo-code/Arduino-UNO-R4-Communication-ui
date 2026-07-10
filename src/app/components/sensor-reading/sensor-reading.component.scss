@@ -107,6 +107,14 @@ tbody tr:hover {
   cursor: not-allowed;
 }
 
+.edit-button {
+  display: inline-block;
+  padding: 0.55rem 0.85rem;
+  border-radius: 0.65rem;
+  text-decoration: none;
+  font-weight: 700;
+}
+
 @media (max-width: 700px) {
   .page-header {
     flex-direction: column;

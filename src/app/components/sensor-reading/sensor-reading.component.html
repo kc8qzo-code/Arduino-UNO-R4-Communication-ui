@@ -29,6 +29,7 @@
             <th>Humidity</th>
             <th>Light</th>
             <th>Pass Value</th>
+            <th>Editing</th>
           </tr>
         </thead>
         @if (sensorReadingsPage.items.length > 0) {
@@ -39,6 +40,15 @@
                 <td>{{ item.humidity }} %</td>
                 <td>{{ item.light }}</td>
                 <td>{{ item.passValue }}</td>
+                <td>
+                  <a
+                    class="button secondary edit-button"
+                    [routerLink]="['/readings', item.id.toString()]"
+                    [state]="{ reading: item }"
+                  >
+                    Edit
+                  </a>
+                </td>
               </tr>
             }
           </tbody>
