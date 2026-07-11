@@ -10,7 +10,7 @@ import { SensorReadingService } from '../../services/sensor-reading.service';
 @Component({
   selector: 'app-sensor-reading-edit',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink],
+  imports: [ReactiveFormsModule],
   templateUrl: './sensor-reading-edit.component.html',
   styleUrls: ['./sensor-reading-edit.component.scss']
 })
@@ -64,7 +64,7 @@ export class SensorReadingEditComponent implements OnInit {
     }
 
     const value = this.editForm.getRawValue();
-    
+
     const changes: SensorReadingUpdate = {
       temperature: value.temperature!,
       humidity: value.humidity!,
