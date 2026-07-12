@@ -3,9 +3,9 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
-import type { SensorReading } from '../../models/sensor-reading.model';
-import type { SensorReadingUpdate } from '../../models/sensor-reading-update.model';
-import { SensorReadingService } from '../../services/sensor-reading.service';
+import type { SensorReading } from '../../../models/sensor-reading.model';
+import type { SensorReadingUpdate } from '../../../models/sensor-reading-update.model';
+import { SensorReadingService } from '../../../services/sensor-reading.service';
 
 @Component({
   selector: 'app-sensor-reading-edit',

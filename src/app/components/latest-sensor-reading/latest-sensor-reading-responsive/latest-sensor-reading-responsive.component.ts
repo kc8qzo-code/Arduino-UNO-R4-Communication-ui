@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs';
-import { LatestSensorReadingComponent } from '../latest-sensor-reading/latest-sensor-reading.component';
+import { LatestSensorReadingComponent } from '../latest-sensor-reading.component';
 import { LatestSensorReadingMobileComponent } from '../latest-sensor-reading-mobile/latest-sensor-reading-mobile.component';
 
 @Component({

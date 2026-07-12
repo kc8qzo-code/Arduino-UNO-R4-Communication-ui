@@ -84,7 +84,7 @@ export class SensorReadingService {
       humidity: reading.humidity,
       light: reading.light,
       passValue: reading.passValue,
-      postAt: reading.postAt ? new Date(reading.postAt) : undefined
+      postedAt: new Date(reading.postedAt)
     };
   }
 

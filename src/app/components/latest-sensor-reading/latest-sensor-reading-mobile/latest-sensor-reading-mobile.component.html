@@ -1,7 +1,7 @@
 @if (latestSensorReading | async; as latest) {
   <section class="mobile-latest-shell">
     <header class="mobile-header">
-      <p class="eyebrow">Live Mobile</p>
+      <p class="eyebrow">Live Mobile Sensor Data</p>
       <h1>Latest Reading</h1>
       <p>Refreshes every 2 seconds.</p>
     </header>
@@ -48,7 +48,7 @@
 
     <nav class="mobile-actions" aria-label="Latest sensor reading actions">
       <a routerLink="/" class="button secondary">Home</a>
-      <a routerLink="/sensor-reading" class="button primary">View Table</a>
+      <a routerLink="/sensor-reading" class="button primary">Sensor Data</a>
     </nav>
   </section>
 }
