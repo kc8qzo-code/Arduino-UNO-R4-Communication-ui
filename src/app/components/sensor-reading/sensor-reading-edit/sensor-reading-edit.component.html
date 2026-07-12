@@ -18,6 +18,7 @@
     <form class="edit-card" [formGroup]="editForm" (ngSubmit)="save()">
       <div class="readonly-details">
         <div><span>Reading ID</span><strong>{{ reading.id }}</strong></div>
+        <div><span>Posted At</span><strong>{{ postedAt | date:'medium' }}</strong></div>
       </div>
 
       <div class="form-grid">

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
@@ -10,12 +11,13 @@ import { SensorReadingService } from '../../../services/sensor-reading.service';
 @Component({
   selector: 'app-sensor-reading-edit',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [DatePipe, ReactiveFormsModule],
   templateUrl: './sensor-reading-edit.component.html',
   styleUrls: ['./sensor-reading-edit.component.scss']
 })
 export class SensorReadingEditComponent implements OnInit {
   protected reading: SensorReading | null = null;
+  protected postedAt!: Date;
   protected errorMessage = '';
   protected successMessage = '';
   protected isLoading = true;
@@ -94,6 +96,7 @@ export class SensorReadingEditComponent implements OnInit {
 
   private setReading(reading: SensorReading): void {
     this.reading = reading;
+    this.postedAt = new Date(reading.postedAt);
 
     this.editForm.setValue({
       temperature: reading.temperature,
