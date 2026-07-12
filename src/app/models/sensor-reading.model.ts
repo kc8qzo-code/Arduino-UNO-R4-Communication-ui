@@ -4,5 +4,5 @@ export interface SensorReading {
   humidity: number;
   light: number | null;
   passValue: number | null;
-  postAt?: Date;
+  postedAt: Date;
 }

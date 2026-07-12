@@ -4,7 +4,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { RouterLink } from '@angular/router';
 import { catchError, map, of, timer } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { SensorReadingService } from '../../services/sensor-reading.service';
+import { SensorReadingService } from '../../../services/sensor-reading.service';
 
 @Component({
   selector: 'app-latest-sensor-reading-mobile',

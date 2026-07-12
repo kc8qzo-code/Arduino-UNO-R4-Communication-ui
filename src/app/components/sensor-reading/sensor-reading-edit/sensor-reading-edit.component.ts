@@ -1,21 +1,23 @@
 import { Component, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
-import type { SensorReading } from '../../models/sensor-reading.model';
-import type { SensorReadingUpdate } from '../../models/sensor-reading-update.model';
-import { SensorReadingService } from '../../services/sensor-reading.service';
+import type { SensorReading } from '../../../models/sensor-reading.model';
+import type { SensorReadingUpdate } from '../../../models/sensor-reading-update.model';
+import { SensorReadingService } from '../../../services/sensor-reading.service';
 
 @Component({
   selector: 'app-sensor-reading-edit',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [DatePipe, ReactiveFormsModule],
   templateUrl: './sensor-reading-edit.component.html',
   styleUrls: ['./sensor-reading-edit.component.scss']
 })
 export class SensorReadingEditComponent implements OnInit {
   protected reading: SensorReading | null = null;
+  protected postedAt!: Date;
   protected errorMessage = '';
   protected successMessage = '';
   protected isLoading = true;
@@ -69,7 +71,8 @@ export class SensorReadingEditComponent implements OnInit {
       temperature: value.temperature!,
       humidity: value.humidity!,
       light: value.light,
-      passValue: value.passValue
+      passValue: value.passValue,
+      postedAt: this.postedAt.toISOString()
     };
 
     this.errorMessage = '';
@@ -94,6 +97,7 @@ export class SensorReadingEditComponent implements OnInit {
 
   private setReading(reading: SensorReading): void {
     this.reading = reading;
+    this.postedAt = new Date(reading.postedAt);
 
     this.editForm.setValue({
       temperature: reading.temperature,

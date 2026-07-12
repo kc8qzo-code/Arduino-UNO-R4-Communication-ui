@@ -4,5 +4,5 @@ export interface SensorReadingResponse {
   humidity: number;
   light: number | null;
   passValue: number | null;
-  postAt?: string | null;
+  postedAt: string;
 }
