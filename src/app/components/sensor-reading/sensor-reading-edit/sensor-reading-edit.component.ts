@@ -71,7 +71,8 @@ export class SensorReadingEditComponent implements OnInit {
       temperature: value.temperature!,
       humidity: value.humidity!,
       light: value.light,
-      passValue: value.passValue
+      passValue: value.passValue,
+      postedAt: this.postedAt.toISOString()
     };
 
     this.errorMessage = '';
