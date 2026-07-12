@@ -8,7 +8,9 @@
     "ssg": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve": "ng serve"
+    "serve": "ng serve",
+    "serve:prod": "npm run build && node server.mjs",
+    "start:prod": "node server.mjs"
   },
   "private": true,
   "packageManager": "npm@11.12.1",
