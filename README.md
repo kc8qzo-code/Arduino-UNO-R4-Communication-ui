@@ -36,6 +36,28 @@ ng build
 
 This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
+## Production server
+
+Build and serve the optimized application:
+
+```bash
+npm run serve:prod
+```
+
+The server listens on all network interfaces on port `4200`. Set `HOST` or `PORT`
+to override those defaults. Requests under `/api` are proxied to
+`http://localhost:8080`; set `API_TARGET` to use a different backend. If the
+application has already been built, start only the server with
+`npm run start:prod`.
+
+For example, in PowerShell:
+
+```powershell
+$env:PORT = 4200
+$env:API_TARGET = 'http://localhost:8080'
+npm run start:prod
+```
+
 ## Running unit tests
 
 To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
